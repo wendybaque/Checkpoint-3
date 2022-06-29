@@ -54,19 +54,27 @@ function Map() {
             {/* Add here N/S/E/W links */}
             {/* EAST */}
             <div className="row">
-              <Link to="/boat/move/east">EST</Link>
+              <Link to={`/boat/move/${boat.coord_x + 1}/${boat.coord_y}`}>
+                EAST
+              </Link>
             </div>
             {/* NORTH */}
             <div className="row">
-              <Link to="/boat/move/north">NORD</Link>
+              <Link to={`/boat/move/${boat.coord_x}/${boat.coord_y - 1}`}>
+                NORTH
+              </Link>
             </div>
             {/* WEST */}
             <div className="row">
-              <Link to="/boat/move/west">OUEST</Link>
+              <Link to={`/boat/move/${boat.coord_x - 1}/${boat.coord_y - 1}`}>
+                WEST
+              </Link>
             </div>
             {/* SOUTH */}
             <div className="row">
-              <Link to="/boat/move/south">SUD</Link>
+              <Link to={`/boat/move/${boat.coord_x}/${boat.coord_y + 1}`}>
+                SOUTH
+              </Link>
             </div>
           </div>
         </div>
