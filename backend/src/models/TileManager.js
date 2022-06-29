@@ -9,9 +9,14 @@ class TileManager extends AbstractManager {
     );
   }
 
-  // findOne(x, y) {
-  //   return this.connection.query(`SELECT * FROM ${TileManager.table} WHERE`);
-  // }
+  findOne(x, y) {
+    return this.connection
+      .query(
+        `SELECT * FROM ${TileManager.table} WHERE coord_x = ? AND coord_y = ?`,
+        [x, y]
+      )
+      .then((res) => res[0]);
+  }
 
   // CONSIGNE 7 :
   getRandomIsland() {
