@@ -7,6 +7,8 @@ const TileExist = (req, res, next) => {
     .findOne(req.params.x, req.params.y)
     .then((result) => {
       if (result[0]) {
+        // eslint-disable-next-line prefer-destructuring
+        req.tile = result[0];
         next();
       } else {
         res.status(422).send("You can't move around");

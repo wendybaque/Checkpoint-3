@@ -46,7 +46,20 @@ function Map() {
             <h2>Information</h2>
             {/* CONSIGNE 5 */}
             {/* Add here informations about current ship position */}
-            {/* Je n'ai pas compris la consigne. */}
+            <h3>Name: {boat.name}</h3>
+            <p>Coordinate X : {boat.coord_x}</p>
+            <p>Coordinate Y : {boat.coord_y}</p>
+            <p>Tile Back : {boat.tileType}</p>
+            <p>
+              Tile Front :{" "}
+              {
+                tiles.filter(
+                  (tile) =>
+                    tile.coord_x === boat.coord_x &&
+                    tile.coord_y === boat.coord_y
+                )[0].type
+              }
+            </p>
           </div>
           <div className="navigation">
             <h2>Navigation</h2>
@@ -66,7 +79,7 @@ function Map() {
             </div>
             {/* WEST */}
             <div className="row">
-              <Link to={`/boat/move/${boat.coord_x - 1}/${boat.coord_y - 1}`}>
+              <Link to={`/boat/move/${boat.coord_x - 1}/${boat.coord_y}`}>
                 WEST
               </Link>
             </div>

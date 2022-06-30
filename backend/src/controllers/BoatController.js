@@ -18,6 +18,7 @@ class BoatController {
       name: "Black Pearl",
       coord_x: parseInt(req.params.x, 10),
       coord_y: parseInt(req.params.y, 10),
+      tileType: req.tile.type,
     };
 
     models.boat
