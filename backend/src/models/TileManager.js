@@ -23,7 +23,7 @@ class TileManager extends AbstractManager {
     return this.connection.query(
       `SELECT column FROM table
       ORDER BY RAND()
-      LIMIT 1 from  ${TileManager.table}`
+      LIMIT 1 FROM  ${TileManager.table}`
     );
   }
 

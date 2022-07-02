@@ -37,6 +37,7 @@ class BoatController {
   };
 
   static start = (req, res) => {
+    // CONSIGNE 8 :
     const boat = {
       name: "New Game",
       // eslint-disable-next-line radix
@@ -44,14 +45,6 @@ class BoatController {
       // eslint-disable-next-line radix
       coord_y: parseInt(req.params.y, 0),
     };
-    // connection.query('SELECT ?; SELECT ?', [1, 2], (err, results) => {
-    //   if (err) {
-    //     throw err;
-    //   }
-    //   const [r1, r2] = results
-    //   console.log(r1);
-    //   console.log(r2);
-    // });
 
     models.boat
       .update(boat)
