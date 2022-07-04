@@ -19,6 +19,7 @@ class BoatController {
       coord_x: parseInt(req.params.x, 10),
       coord_y: parseInt(req.params.y, 10),
       tileType: req.tile.type,
+      isJackRich: !!req.tile.has_treasure,
     };
 
     models.boat
@@ -36,8 +37,18 @@ class BoatController {
       });
   };
 
+  // CONSIGNE 8 :
   static start = (req, res) => {
-    // CONSIGNE 8 :
+    // models.tile.resetTreasure()
+    // .then((reset) => {
+    //   models.tile
+    //   .setTreasureOnRandomIsland()
+    //   res.status(200).send("OK reset, treasure put.")
+    // })
+    // .catch((err) => {
+    //   console.error(err);
+    //   res.sendStatus(500);
+    // });
     const boat = {
       name: "New Game",
       // eslint-disable-next-line radix

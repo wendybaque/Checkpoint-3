@@ -61,6 +61,8 @@ function Map() {
                 )[0].type
               }
             </p>
+            {/* CONSIGNE 10 : */}
+            {boat.isJackRich}
           </div>
           <div className="navigation">
             <h2>Navigation</h2>

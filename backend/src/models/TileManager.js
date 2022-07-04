@@ -20,11 +20,22 @@ class TileManager extends AbstractManager {
   }
 
   // CONSIGNE 7 :
-  getRandomIsland() {
-    return this.connection.query(
-      `SELECT column FROM table
+  setTreasureOnRandomIsland() {
+    return this.connection
+      .query(
+        `UPDATE * FROM  ${TileManager.table}
+      SET has_treasure = 1
+      WHERE type = "island"
       ORDER BY RAND()
-      LIMIT 1 FROM  ${TileManager.table}`
+      LIMIT 1`
+      )
+      .then((res) => res[0]);
+  }
+
+  // CONSIGNE 8 :
+  resetTreasure() {
+    return this.connection.query(
+      `UPDATE ${TileManager.table} SET has_treasure = 0`
     );
   }
 

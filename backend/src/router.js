@@ -12,5 +12,5 @@ router.get("/boat", BoatController.get);
 router.put("/boat/move/:x/:y", TileExist, BoatController.move);
 router.get("/boat/move/x/y", BoatController.move);
 router.get("/boat/start", BoatController.start);
-
+router.get("/start", BoatController.start);
 module.exports = router;
