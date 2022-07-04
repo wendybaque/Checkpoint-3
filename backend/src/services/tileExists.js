@@ -5,13 +5,13 @@ const TileExist = (req, res, next) => {
   // Tester s'il y a un tile en x et y :
   models.tile
     .findOne(req.params.x, req.params.y)
-    .then((result) => {
-      if (result[0]) {
+    .then((tile) => {
+      if (tile[0]) {
         // eslint-disable-next-line prefer-destructuring
-        req.tile = result[0];
+        req.tile = tile[0];
         next();
       } else {
-        res.status(422).send("You can't move around");
+        res.status(422).send("You can't move here.");
       }
     })
     .catch((err) => {
@@ -20,4 +20,4 @@ const TileExist = (req, res, next) => {
     });
   next();
 };
-module.exports = { TileExist };
+module.exports = TileExist;

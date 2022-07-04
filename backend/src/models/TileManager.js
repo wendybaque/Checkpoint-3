@@ -9,6 +9,7 @@ class TileManager extends AbstractManager {
     );
   }
 
+  // CONSIGNE 4 :
   findOne(x, y) {
     return this.connection
       .query(

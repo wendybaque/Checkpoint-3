@@ -7,6 +7,7 @@ import boatImage from "../assets/boat.png";
 
 function Map() {
   const { boat, tiles } = useCaribbean();
+  // const actualTile = tile.filter
 
   return (
     <div className="container-fluid">
@@ -51,12 +52,12 @@ function Map() {
             <p>Coordinate Y : {boat.coord_y}</p>
             <p>Tile Back : {boat.tileType}</p>
             <p>
-              Tile Front :{" "}
+              Tile Front :
               {
                 tiles.filter(
                   (tile) =>
-                    tile.coord_x === boat.coord_x &&
-                    tile.coord_y === boat.coord_y
+                    tile.coord.x === boat.coord_x &&
+                    tile.coord.y === boat.coord_y
                 )[0].type
               }
             </p>
@@ -65,29 +66,37 @@ function Map() {
             <h2>Navigation</h2>
             {/* CONSIGNE 3 */}
             {/* Add here N/S/E/W links */}
-            {/* EAST */}
-            <div className="row">
-              <Link to={`/boat/move/${boat.coord_x + 1}/${boat.coord_y}`}>
-                EAST
-              </Link>
-            </div>
             {/* NORTH */}
             <div className="row">
-              <Link to={`/boat/move/${boat.coord_x}/${boat.coord_y - 1}`}>
-                NORTH
-              </Link>
-            </div>
-            {/* WEST */}
-            <div className="row">
-              <Link to={`/boat/move/${boat.coord_x - 1}/${boat.coord_y}`}>
-                WEST
-              </Link>
+              <li>
+                <Link to={`/boat/move/${boat.coord_x}/${boat.coord_y - 1}`}>
+                  NORTH
+                </Link>
+              </li>
             </div>
             {/* SOUTH */}
             <div className="row">
-              <Link to={`/boat/move/${boat.coord_x}/${boat.coord_y + 1}`}>
-                SOUTH
-              </Link>
+              <li>
+                <Link to={`/boat/move/${boat.coord_x}/${boat.coord_y + 1}`}>
+                  SOUTH
+                </Link>
+              </li>
+            </div>
+            {/* EAST */}
+            <div className="row">
+              <li>
+                <Link to={`/boat/move/${boat.coord_x - 1}/${boat.coord_y}`}>
+                  EAST
+                </Link>
+              </li>
+            </div>
+            {/* WEST */}
+            <div className="row">
+              <li>
+                <Link to={`/boat/move/${boat.coord_x + 1}/${boat.coord_y}`}>
+                  WEST
+                </Link>
+              </li>
             </div>
           </div>
         </div>

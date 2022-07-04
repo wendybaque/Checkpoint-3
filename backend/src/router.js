@@ -2,7 +2,7 @@ const express = require("express");
 
 const { BoatController, TileController } = require("./controllers");
 
-const { TileExist } = require("./services/tileExists");
+const TileExist = require("./services/tileExists");
 
 const router = express.Router();
 
