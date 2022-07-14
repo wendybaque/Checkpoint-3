@@ -18,6 +18,24 @@ const TileExist = (req, res, next) => {
       console.error(err);
       res.status(500).send("Server error.");
     });
-  next();
 };
-module.exports = TileExist;
+// // AUTRE MANIERE DE FAIRE :
+// const checkTileExistFromDB = (req, res, next) => {
+//   models.tile
+//     .findOneByCoordinate(req.params.x, req.params.y)
+//     .then((tile) => {
+//       if (tile[0]) {
+//         // eslint-disable-next-line prefer-destructuring
+//         req.macle = tile[0];
+//         next();
+//       } else {
+//         res.status(422).send("You can't move here.");
+//       }
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//       res.status(500).send("Server error.");
+//     });
+// };
+
+module.exports = { TileExist };

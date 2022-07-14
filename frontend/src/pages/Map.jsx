@@ -60,9 +60,9 @@ function Map() {
                     tile.coord.y === boat.coord_y
                 )[0].type
               }
+              {/* CONSIGNE 10 : */}
+              {boat.isJackRich && <p>You WIN, congrats !</p>}
             </p>
-            {/* CONSIGNE 10 : */}
-            {boat.isJackRich}
           </div>
           <div className="navigation">
             <h2>Navigation</h2>

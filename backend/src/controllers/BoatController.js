@@ -39,36 +39,31 @@ class BoatController {
 
   // CONSIGNE 8 :
   static start = (req, res) => {
-    // models.tile.resetTreasure()
-    // .then((reset) => {
-    //   models.tile
-    //   .setTreasureOnRandomIsland()
-    //   res.status(200).send("OK reset, treasure put.")
-    // })
-    // .catch((err) => {
-    //   console.error(err);
-    //   res.sendStatus(500);
-    // });
-    const boat = {
-      name: "New Game",
-      // eslint-disable-next-line radix
-      coord_x: parseInt(req.params.x, 0),
-      // eslint-disable-next-line radix
-      coord_y: parseInt(req.params.y, 0),
-    };
-
-    models.boat
-      .update(boat)
-      .then(([result]) => {
-        if (result.affectedRows === 0) {
-          res.sendStatus(404);
-        } else {
-          res.send(boat);
-        }
+    models.tile
+      .resetTreasure()
+      .then(() => {
+        models.tile
+          .setTreasureOnRandomIsland()
+          .then(() => {
+            models.boat
+              .findAll()
+              .then(([rows]) => {
+                res.status(200).send(rows[0]);
+              })
+              .catch((err) => {
+                console.error(err);
+                res.sendStatus(500);
+              });
+            res.status(200).send();
+          })
+          .catch((err) => {
+            console.error(err);
+            res.sendStatus(500).send("Server error on treasure");
+          });
       })
       .catch((err) => {
         console.error(err);
-        res.sendStatus(500);
+        res.sendStatus(500).send("Server error");
       });
   };
 }

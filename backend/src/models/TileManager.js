@@ -23,7 +23,7 @@ class TileManager extends AbstractManager {
   setTreasureOnRandomIsland() {
     return this.connection
       .query(
-        `UPDATE * FROM  ${TileManager.table}
+        `UPDATE ${TileManager.table}
       SET has_treasure = 1
       WHERE type = "island"
       ORDER BY RAND()
