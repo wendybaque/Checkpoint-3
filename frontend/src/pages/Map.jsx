@@ -7,7 +7,6 @@ import boatImage from "../assets/boat.png";
 
 function Map() {
   const { boat, tiles } = useCaribbean();
-  // const actualTile = tile.filter
 
   return (
     <div className="container-fluid">
